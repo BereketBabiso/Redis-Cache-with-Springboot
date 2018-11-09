@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: redis-cache
+  profiles:
+    active:
+    - local
+server:
+  port: 8077
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/Residents?createDatabaseIfNotExist=true
+    username: root
+    password: 
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernet:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  cache:
+    type: redis
+  redis:
+    host: 192.168.99.100
+    port: 6379
