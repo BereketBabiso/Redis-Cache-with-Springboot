@@ -10,11 +10,12 @@ import com.rediscache.demo.repository.ResidentRepository;
 @Component
 public class CacheUtil {
 	@Autowired
-	private ResidentRepository residentRepo;
+	private ResidentRepository residentRepository;
 	
 	@Cacheable(value="residentInfo", key="#id")
 	public Resident getResidentRecordById(long id) {
-		return residentRepo.findById(id).get();
+		System.out.println("cacheeeee");
+		return residentRepository.findById(id).get();
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.rediscache.demo.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +13,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Accessors(fluent = true)
 @Entity(name="residents")
-public class Resident {
+public class Resident implements Serializable {
 	@Id
 	@Column(name="id")
 	private long id;
